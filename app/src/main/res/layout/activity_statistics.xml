@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?><!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:tools="http://schemas.android.com/tools"--><!--android:layout_width="fill_parent"--><!--android:layout_height="fill_parent"--><!--tools:context=".Statistics_Activity">-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
+    tools:context="com.mario22gmail.vasile.projecthamburger.Statistics_Activity">
+
+    <RelativeLayout
+        android:layout_width="@dimen/fab_width"
+        android:layout_height="@dimen/fab_height"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fabHamburgerNavigation"
+            android:layout_width="@dimen/fab_width"
+            android:layout_height="@dimen/fab_height"
+            android:layout_centerInParent="true"
+            android:layout_weight="0.74"
+            android:onClick="FabMainPageNavigationClick"
+            android:src="@drawable/fab_main_page_nav_icon"
+            app:elevation="4dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/layoutSingleDate"
+                android:layout_width="@dimen/datepicker_statistics_width"
+                android:layout_height="72dp"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="@dimen/datepicker_statistics_margin"
+                    android:paddingBottom="6dp"
+                    android:text="De la"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/datepickerStatisticsSingleDate"
+                    android:layout_width="@dimen/datepicker_statistics_width"
+                    android:layout_height="@dimen/datepicker_statistics_height"
+                    android:layout_marginLeft="@dimen/datepicker_statistics_margin"
+                    android:focusable="false" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutPeriod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/datepicker_statistics_width"
+                    android:layout_height="72dp"
+                    android:layout_marginTop="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginLeft="@dimen/datepicker_statistics_margin"
+                        android:paddingBottom="6dp"
+                        android:text="De la"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/datepickerStatisticsFrom"
+                        android:layout_width="@dimen/datepicker_statistics_width"
+                        android:layout_height="@dimen/datepicker_statistics_height"
+                        android:layout_marginLeft="@dimen/datepicker_statistics_margin"
+                        android:focusable="false" />
+                </RelativeLayout>
+
+                <RelativeLayout
+
+                    android:layout_width="@dimen/datepicker_statistics_width"
+                    android:layout_height="72dp"
+                    android:layout_marginTop="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginLeft="@dimen/datepicker_statistics_margin"
+                        android:paddingBottom="6dp"
+                        android:text="Pana la"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/datepickerStatisticsTo"
+                        android:layout_width="@dimen/datepicker_statistics_width"
+                        android:layout_height="@dimen/datepicker_statistics_height"
+                        android:layout_marginLeft="@dimen/datepicker_statistics_margin"
+                        android:focusable="false" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/periodCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/datepicker_statistics_margin"
+                android:buttonTint="@color/colorAccent"
+                android:text="Perioada" />
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="50dp"
+                android:orientation="horizontal">
+
+                <lecho.lib.hellocharts.view.PieChartView
+                    android:id="@+id/pieChart"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@color/colorRed" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:text="@string/hamburger_special"
+                            android:textSize="17sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@color/colorTeal" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:text="@string/hamburger_dublu"
+                            android:textSize="17sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@color/colorBlueDark" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:text="@string/hamburger_sunca"
+                            android:textSize="17sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@color/colorBlueGrey" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:text="@string/hamburger_mediu"
+                            android:textSize="17sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@color/colorOrangeLight" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:text="@string/hamburger_cheeseburger"
+                            android:textSize="17sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@color/colorYellow" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:text="@string/hamburger_cartofi"
+                            android:textSize="17sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@color/colorViolet" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:text="@string/hamburger_simpu"
+                            android:textSize="17sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@color/colorGreen" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:text="@string/hamburger_Vegetarian"
+                            android:textSize="17sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@color/colorMov" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:text="@string/sandwich"
+                            android:textSize="17sp" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="26dp"
+                android:orientation="vertical"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="26dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/french_fries"
+                        />
+
+                    <TextView
+                        android:id="@+id/textViewTotalCartofi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center"
+                        android:layout_marginLeft="8dp"
+                        android:text="something"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@color/colorTeal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="@string/hamburger_dublu"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@color/colorBlueDark" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="@string/hamburger_sunca"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@color/colorBlueGrey" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="@string/hamburger_mediu"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@color/colorOrangeLight" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="@string/hamburger_cheeseburger"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@color/colorYellow" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="@string/hamburger_cartofi"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@color/colorViolet" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="@string/hamburger_simpu"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@color/colorGreen" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="@string/hamburger_Vegetarian"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@color/colorMov" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="@string/sandwich"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout><!--</ScrollView>-->
+
+

@@ -1,0 +1,752 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".MainActivity">
+
+    <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/switch_margin_layout_left"
+                android:layout_marginTop="@dimen/switch_margin_top"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/hamburgerSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/switch_margin_left"
+                    android:background="@null"
+                    android:text="Adaugare  "
+                    android:textSize="@dimen/switch_description_dimension" />
+            </LinearLayout>
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                tools:context="com.mario22gmail.vasile.projecthamburger.MainActivity">
+
+
+                <LinearLayout
+                    android:id="@+id/LayoutHamburgerSpecial"
+                    android:layout_width="@dimen/hamburger_mainlayout_width"
+                    android:layout_height="@dimen/hamburger_mainlayout_height"
+                    android:layout_marginLeft="@dimen/hamburger_mainlayout_margin_left"
+                    android:layout_marginRight="@dimen/hamburger_mainlayout_margin_right"
+                    android:background="@drawable/round_card_layout_red"
+                    android:onClick="ButtonActionHamburgerSpecialClick"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/hamburger_mainlayout_padding_top">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:paddingBottom="@dimen/hamburger_main_description_padding_bottom"
+                        android:text="Special"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/hamburger_main_description_text_size"
+                        android:textStyle="bold" />
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="@dimen/hamburger_daily_description_padding_bottom"
+                            android:text="@string/daily_hamburger_count"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/hamburger_daily_description_text_size" />
+
+                        <TextView
+                            android:id="@+id/hamburgerSpecialDailyCountTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="@dimen/hamburger_daily_description_padding_bottom"
+                            android:text=""
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/hamburger_daily_description_text_size" />
+                    </LinearLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <ImageButton
+                            android:id="@+id/buttonActionHamburgerSpecial"
+                            android:layout_width="@dimen/hamburger_action_icon_size_width"
+                            android:layout_height="@dimen/hamburger_action_icon_size_height"
+                            android:layout_centerInParent="true"
+                            android:background="@color/colorRed"
+                            android:onClick="ButtonActionHamburgerSpecialClick"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/add_img" />
+                    </RelativeLayout>
+                    <!--style="@style/Widget.AppCompat.Button.Colored"-->
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/LayoutHamburgerDublu"
+                    android:layout_width="@dimen/hamburger_mainlayout_width"
+                    android:layout_height="@dimen/hamburger_mainlayout_height"
+                    android:layout_marginLeft="@dimen/hamburger_mainlayout_margin_left"
+                    android:layout_marginRight="@dimen/hamburger_mainlayout_margin_right"
+                    android:background="@drawable/round_card_layout_teal"
+                    android:onClick="ButtonActionHamburgerDubluClick"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/hamburger_mainlayout_padding_top">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:paddingBottom="@dimen/hamburger_main_description_padding_bottom"
+                        android:text="@string/hamburger_dublu"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/hamburger_main_description_text_size"
+                        android:textStyle="bold" />
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="@dimen/hamburger_daily_description_padding_bottom"
+                            android:text="@string/daily_hamburger_count"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/hamburger_daily_description_text_size" />
+
+                        <TextView
+                            android:id="@+id/hamburgerDubluDailyCountTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="@dimen/hamburger_daily_description_padding_bottom"
+                            android:text=""
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/hamburger_daily_description_text_size" />
+                    </LinearLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <ImageButton
+                            android:id="@+id/buttonActionHamburgerDublu"
+                            android:layout_width="@dimen/hamburger_action_icon_size_width"
+                            android:layout_height="@dimen/hamburger_action_icon_size_height"
+                            android:layout_centerInParent="true"
+                            android:background="@color/colorTeal"
+                            android:onClick="ButtonActionHamburgerDubluClick"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/add_img" />
+                    </RelativeLayout>
+                    <!--style="@style/Widget.AppCompat.Button.Colored"-->
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/LayoutHamburgerSunca"
+                    android:layout_width="@dimen/hamburger_mainlayout_width"
+                    android:layout_height="@dimen/hamburger_mainlayout_height"
+                    android:layout_marginLeft="@dimen/hamburger_mainlayout_margin_left"
+                    android:layout_marginRight="@dimen/hamburger_mainlayout_margin_right"
+                    android:background="@drawable/round_card_layout_blue"
+                    android:onClick="ButtonActionHamburgerSuncaClick"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/hamburger_mainlayout_padding_top">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:paddingBottom="@dimen/hamburger_main_description_padding_bottom"
+                        android:text="Sunca"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/hamburger_main_description_text_size"
+                        android:textStyle="bold" />
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="@dimen/hamburger_daily_description_padding_bottom"
+                            android:text="@string/daily_hamburger_count"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/hamburger_daily_description_text_size" />
+
+                        <TextView
+                            android:id="@+id/hamburgerSuncaDailyCountTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="@dimen/hamburger_daily_description_padding_bottom"
+                            android:text=""
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/hamburger_daily_description_text_size" />
+                    </LinearLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <ImageButton
+                            android:id="@+id/buttonActionHamburgerSunca"
+                            android:layout_width="@dimen/hamburger_action_icon_size_width"
+                            android:layout_height="@dimen/hamburger_action_icon_size_height"
+                            android:layout_centerInParent="true"
+                            android:background="@color/colorBlueDark"
+                            android:onClick="ButtonActionHamburgerSuncaClick"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/add_img" />
+                    </RelativeLayout>
+                    <!--style="@style/Widget.AppCompat.Button.Colored"-->
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/LayoutHamburgerMediu"
+                    android:layout_width="@dimen/hamburger_mainlayout_width"
+                    android:layout_height="@dimen/hamburger_mainlayout_height"
+                    android:layout_marginLeft="@dimen/hamburger_mainlayout_margin_left"
+                    android:layout_marginRight="@dimen/hamburger_mainlayout_margin_right"
+                    android:background="@drawable/round_card_layout_blue_grey"
+                    android:onClick="ButtonActionHamburgerMediuClick"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/hamburger_mainlayout_padding_top">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:paddingBottom="@dimen/hamburger_main_description_padding_bottom"
+                        android:text="Mediu"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/hamburger_main_description_text_size"
+                        android:textStyle="bold" />
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="@dimen/hamburger_daily_description_padding_bottom"
+                            android:text="@string/daily_hamburger_count"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/hamburger_daily_description_text_size" />
+
+                        <TextView
+                            android:id="@+id/hamburgerMediuDailyCountTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="@dimen/hamburger_daily_description_padding_bottom"
+                            android:text=""
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/hamburger_daily_description_text_size" />
+                    </LinearLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <ImageButton
+                            android:id="@+id/buttonActionHamburgerMediu"
+                            android:layout_width="@dimen/hamburger_action_icon_size_width"
+                            android:layout_height="@dimen/hamburger_action_icon_size_height"
+                            android:layout_centerInParent="true"
+                            android:background="@color/colorBlueGrey"
+                            android:onClick="ButtonActionHamburgerMediuClick"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/add_img" />
+                    </RelativeLayout>
+                    <!--style="@style/Widget.AppCompat.Button.Colored"-->
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/LayoutHamburgerCheeseBurger"
+                    android:layout_width="@dimen/hamburger_mainlayout_width"
+                    android:layout_height="@dimen/hamburger_mainlayout_height"
+                    android:layout_marginLeft="@dimen/hamburger_mainlayout_margin_left"
+                    android:layout_marginRight="@dimen/hamburger_mainlayout_margin_right"
+                    android:background="@drawable/round_card_layout_orange_light"
+                    android:onClick="ButtonActionHamburgerCheeseClick"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/hamburger_mainlayout_padding_top">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:paddingBottom="@dimen/hamburger_main_description_padding_bottom"
+                        android:text="Cheesburger"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/hamburger_main_description_text_size_long"
+                        android:textStyle="bold" />
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="@dimen/hamburger_daily_description_padding_bottom"
+                            android:text="@string/daily_hamburger_count"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/hamburger_daily_description_text_size" />
+
+                        <TextView
+                            android:id="@+id/hamburgerCheeseDailyCountTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="@dimen/hamburger_daily_description_padding_bottom"
+                            android:text=""
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/hamburger_daily_description_text_size" />
+                    </LinearLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <ImageButton
+                            android:id="@+id/buttonActionHamburgerCheese"
+                            android:layout_width="@dimen/hamburger_action_icon_size_width"
+                            android:layout_height="@dimen/hamburger_action_icon_size_height"
+                            android:layout_centerInParent="true"
+                            android:background="@color/colorOrangeLight"
+                            android:onClick="ButtonActionHamburgerCheeseClick"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/add_img" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/activity_vertical_margin"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_vertical_margin"
+                    tools:context="com.mario22gmail.vasile.projecthamburger.MainActivity">
+
+
+                    <LinearLayout
+                        android:id="@+id/LayoutHamburgerCartofi"
+                        android:layout_width="@dimen/hamburger_mainlayout_width"
+                        android:layout_height="@dimen/hamburger_mainlayout_height"
+                        android:layout_marginLeft="@dimen/hamburger_mainlayout_margin_left"
+                        android:layout_marginRight="@dimen/hamburger_mainlayout_margin_right"
+                        android:background="@drawable/round_card_layout_yellow"
+                        android:onClick="ButtonActionHamburgerCartofiClick"
+                        android:orientation="vertical"
+                        android:paddingTop="@dimen/hamburger_mainlayout_padding_top">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:paddingBottom="@dimen/hamburger_main_description_padding_bottom"
+                            android:text="Cartofi"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/hamburger_main_description_text_size"
+                            android:textStyle="bold" />
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="@dimen/hamburger_daily_description_padding_bottom"
+                                android:text="@string/daily_hamburger_count"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="@dimen/hamburger_daily_description_text_size" />
+
+                            <TextView
+                                android:id="@+id/hamburgerCartofiDailyCountTextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="@dimen/hamburger_daily_description_padding_bottom"
+                                android:text=""
+                                android:textColor="@color/colorWhite"
+                                android:textSize="@dimen/hamburger_daily_description_text_size" />
+                        </LinearLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center">
+
+                            <ImageButton
+                                android:id="@+id/buttonActionHamburgerCartofi"
+                                android:layout_width="@dimen/hamburger_action_icon_size_width"
+                                android:layout_height="@dimen/hamburger_action_icon_size_height"
+                                android:layout_centerInParent="true"
+                                android:background="@color/colorYellow"
+                                android:onClick="ButtonActionHamburgerCartofiClick"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/add_img" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/LayoutHamburgerSimplu"
+                        android:layout_width="@dimen/hamburger_mainlayout_width"
+                        android:layout_height="@dimen/hamburger_mainlayout_height"
+                        android:layout_marginLeft="@dimen/hamburger_mainlayout_margin_left"
+                        android:layout_marginRight="@dimen/hamburger_mainlayout_margin_right"
+                        android:background="@drawable/round_card_layout_bluesimple"
+                        android:onClick="ButtonActionHamburgerSimpluClick"
+                        android:orientation="vertical"
+                        android:paddingTop="@dimen/hamburger_mainlayout_padding_top">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:paddingBottom="@dimen/hamburger_main_description_padding_bottom"
+                            android:text="Simplu"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/hamburger_main_description_text_size"
+                            android:textStyle="bold" />
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="@dimen/hamburger_daily_description_padding_bottom"
+                                android:text="@string/daily_hamburger_count"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="@dimen/hamburger_daily_description_text_size" />
+
+                            <TextView
+                                android:id="@+id/hamburgerSimpluDailyCountTextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="@dimen/hamburger_daily_description_padding_bottom"
+                                android:text=""
+                                android:textColor="@color/colorWhite"
+                                android:textSize="@dimen/hamburger_daily_description_text_size" />
+                        </LinearLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center">
+
+                            <ImageButton
+                                android:id="@+id/buttonActionHamburgerSimplu"
+                                android:layout_width="@dimen/hamburger_action_icon_size_width"
+                                android:layout_height="@dimen/hamburger_action_icon_size_height"
+                                android:layout_centerInParent="true"
+                                android:background="@color/colorBlueSimple"
+                                android:onClick="ButtonActionHamburgerSimpluClick"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/add_img" />
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/LayoutHamburgerVegetarian"
+                        android:layout_width="@dimen/hamburger_mainlayout_width"
+                        android:layout_height="@dimen/hamburger_mainlayout_height"
+                        android:layout_marginLeft="@dimen/hamburger_mainlayout_margin_left"
+                        android:layout_marginRight="@dimen/hamburger_mainlayout_margin_right"
+                        android:background="@drawable/round_card_layout_green"
+                        android:onClick="ButtonActionHamburgerVegetarianClick"
+                        android:orientation="vertical"
+                        android:paddingTop="@dimen/hamburger_mainlayout_padding_top">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:paddingBottom="@dimen/hamburger_main_description_padding_bottom"
+                            android:text="Vegetarian"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/hamburger_main_description_text_size_long"
+                            android:textStyle="bold" />
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="@dimen/hamburger_daily_description_padding_bottom"
+                                android:text="@string/daily_hamburger_count"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="@dimen/hamburger_daily_description_text_size" />
+
+                            <TextView
+                                android:id="@+id/hamburgerVegetarianDailyCountTextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="@dimen/hamburger_daily_description_padding_bottom"
+                                android:text=""
+                                android:textColor="@color/colorWhite"
+                                android:textSize="@dimen/hamburger_daily_description_text_size" />
+                        </LinearLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center">
+
+                            <ImageButton
+                                android:id="@+id/buttonActionHamburgerVegetarian"
+                                android:layout_width="@dimen/hamburger_action_icon_size_width"
+                                android:layout_height="@dimen/hamburger_action_icon_size_height"
+                                android:layout_centerInParent="true"
+                                android:background="@color/colorGreen"
+                                android:onClick="ButtonActionHamburgerVegetarianClick"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/add_img" />
+                        </RelativeLayout>
+                        <!--style="@style/Widget.AppCompat.Button.Colored"-->
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/LayoutSandwitch"
+                        android:layout_width="@dimen/hamburger_mainlayout_width"
+                        android:layout_height="@dimen/hamburger_mainlayout_height"
+                        android:layout_marginLeft="@dimen/hamburger_mainlayout_margin_left"
+                        android:layout_marginRight="@dimen/hamburger_mainlayout_margin_right"
+                        android:background="@drawable/round_card_layout_mov"
+                        android:onClick="ButtonActionSandwichClick"
+                        android:orientation="vertical"
+                        android:paddingTop="@dimen/hamburger_mainlayout_padding_top">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:paddingBottom="@dimen/hamburger_main_description_padding_bottom"
+                            android:text="Sandwich"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/hamburger_main_description_text_size_long"
+                            android:textStyle="bold" />
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="@dimen/hamburger_daily_description_padding_bottom"
+                                android:text="@string/daily_hamburger_count"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="@dimen/hamburger_daily_description_text_size" />
+
+                            <TextView
+                                android:id="@+id/sandwitchDailyCountTextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="@dimen/hamburger_daily_description_padding_bottom"
+                                android:text=""
+                                android:textColor="@color/colorWhite"
+                                android:textSize="@dimen/hamburger_daily_description_text_size" />
+                        </LinearLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center">
+
+                            <ImageButton
+                                android:id="@+id/buttonActionSandwitch"
+                                android:layout_width="@dimen/hamburger_action_icon_size_width"
+                                android:layout_height="@dimen/hamburger_action_icon_size_height"
+                                android:layout_centerInParent="true"
+                                android:background="@color/colorMov"
+                                android:onClick="ButtonActionSandwichClick"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/add_img" />
+                        </RelativeLayout>
+                        <!--style="@style/Widget.AppCompat.Button.Colored"-->
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fabStatisticNavigation"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="@dimen/fab_statistic_margin_bottom"
+                    android:onClick="FabStatisticsNavigationClick"
+                    android:src="@drawable/fab_chart_img"
+                    app:elevation="4dp" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/textboxAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/resultHamburgerSpecialTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_below="@id/textboxAdd"
+                android:layout_weight="1"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/resultHamburgerDubluTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_below="@id/resultHamburgerSpecialTextView"
+                android:layout_weight="1"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/resultHamburgerSuncaTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_below="@id/resultHamburgerDubluTextView"
+                android:layout_weight="1"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/resultHamburgerMediuTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_below="@id/resultHamburgerSuncaTextView"
+                android:layout_weight="1"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/resultHamburgerCheeseTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_below="@id/resultHamburgerMediuTextView"
+                android:layout_weight="1"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/resultHamburgerCartofiTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_below="@id/resultHamburgerCheeseTextView"
+                android:layout_weight="1"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/resultHamburgerSimpluTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_below="@id/resultHamburgerCartofiTextView"
+                android:layout_weight="1"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/resultHamburgerVegetarianTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_below="@id/resultHamburgerSimpluTextView"
+                android:layout_weight="1"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/resultSandwitchTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_below="@id/resultHamburgerVegetarianTextView"
+                android:layout_weight="1"
+                android:text="" />
+        </LinearLayout>
+
+    </HorizontalScrollView>
+</ScrollView>
+
