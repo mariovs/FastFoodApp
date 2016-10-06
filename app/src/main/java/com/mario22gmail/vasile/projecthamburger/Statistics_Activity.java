@@ -1,10 +1,12 @@
 package com.mario22gmail.vasile.projecthamburger;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatCheckBox;
+import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
@@ -37,6 +39,8 @@ public class Statistics_Activity extends AppCompatActivity {
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear,
                               int dayOfMonth) {
+
+
             // TODO Auto-generated method stub
             calendarOneDay.set(Calendar.YEAR, year);
             calendarOneDay.set(Calendar.MONTH, monthOfYear);
@@ -44,14 +48,16 @@ public class Statistics_Activity extends AppCompatActivity {
             EditText dateFromEditText = (EditText) findViewById(R.id.datepickerStatisticsSingleDate);
             updateLabel(dateFromEditText, calendarFrom);
             UpdatePieChart(calendarOneDay.getTime());
-            String hamburgerSpecial = SqlConstants.ReadHamburgerSpecial(getApplicationContext());
-            int cartofiPrajiti = UpdateTotalAmountsLabelFromDb(calendarOneDay.getTime());
-            TextView cartofiTextView = (TextView) findViewById(R.id.textViewTotalCartofi);
-            cartofiTextView.setText(cartofiPrajiti);
+            UpdateTotalAmountsLabelFromDb(calendarOneDay.getTime());
 
         }
 
+
+
     };
+
+
+
 
     DatePickerDialog.OnDateSetListener dateFrom = new DatePickerDialog.OnDateSetListener() {
 
@@ -133,23 +139,89 @@ public class Statistics_Activity extends AppCompatActivity {
             }
         });
         DisplayRightDatePickers(checkBox.isChecked());
-        totalCartofiTextView = (TextView) findViewById(R.id.textViewTotalCartofi);
     }
 
 
 
-    private int UpdateTotalAmountsLabelFromDb(Date dateFrom)
+    private void UpdateLabelsWithValues(Date dateFrom, Date dateTo)
     {
-        int cartofiCount =SqlConstants.GetCartofiPrajiti(getApplicationContext(),dateFrom);
-        return  cartofiCount;
+
+    }
+
+    private void UpdateTotalAmountsLabelFromDb(Date dateFrom)
+    {
+        Context context = getApplicationContext();
+
+        int cartofiAmount = SqlConstants.GetValuesCountFromTables(context,dateFrom,SqlConstants.CartofiPrajitiTables(),SqlConstants.ColoanaCartofi);
+        TextView cartofiTextView = (TextView) findViewById(R.id.textViewAmountCartofiPrajiti);
+        cartofiTextView.setText(cartofiAmount + "");
+
+        int pretAmount = SqlConstants.GetValuesCountFromTables(context,dateFrom,SqlConstants.PretTables(),SqlConstants.ColoanaPret);
+        TextView pretTextView = (TextView)findViewById(R.id.textViewAmountBani);
+        pretTextView.setText(String.valueOf(pretAmount));
+
+        int paineAmount = SqlConstants.GetValuesCountFromTables(context,dateFrom,SqlConstants.ChiflaTables(),SqlConstants.ColoanaPaine);
+        TextView paineTextView = (TextView) findViewById(R.id.textViewAmountChifle);
+        paineTextView.setText(paineAmount + "");
+
+        int carneAmount = SqlConstants.GetValuesCountFromTables(context,dateFrom,SqlConstants.CarneTables(),SqlConstants.ColoanaCarne);
+        TextView carneTextView = (TextView) findViewById(R.id.textViewAmountCarne);
+        carneTextView.setText(carneAmount + "");
+
+        int maionezaAmount = SqlConstants.GetValuesCountFromTables(context, dateFrom,SqlConstants.MaionezaTables(),SqlConstants.ColoanaMaioneza);
+        TextView maionezaTextView = (TextView) findViewById(R.id.textViewAmountMaioneza);
+        maionezaTextView.setText(maionezaAmount + "");
+
+        int cascavalAmount = SqlConstants.GetValuesCountFromTables(context, dateFrom,SqlConstants.CascavalTables(),SqlConstants.ColoanaCascaval);
+        TextView cascavalTextView = (TextView) findViewById(R.id.textViewAmountCascaval);
+        cascavalTextView.setText(cascavalAmount + "");
+
+        int ketchupAmount = SqlConstants.GetValuesCountFromTables(context, dateFrom, SqlConstants.KetchupTables(), SqlConstants.ColoanaKetchup);
+        TextView ketchupTextView = (TextView) findViewById(R.id.textViewAmountKetchup);
+        ketchupTextView.setText(ketchupAmount + "");
+
+        int suncaAmount = SqlConstants.GetValuesCountFromTables(context,dateFrom, SqlConstants.SuncaTables(),SqlConstants.ColoanaSunca);
+        TextView suncaTextView = (TextView) findViewById(R.id.textViewAmountSunca);
+        suncaTextView.setText(suncaAmount + "");
     }
 
     private void UpdateTotalAmountsLabelFromDb(Date dateFrom, Date dateTo)
     {
-        int totalCartofiAmount = SqlConstants.GetCartofiPrajiti(getApplicationContext(),dateFrom,dateTo);
+        Context context = getApplicationContext();
 
-        totalCartofiTextView.setText(totalCartofiAmount);
+        int cartofiAmount = SqlConstants.GetValuesCountFromTables(context,dateFrom,dateTo,SqlConstants.CartofiPrajitiTables(),SqlConstants.ColoanaCartofi);
+        TextView cartofiTextView = (TextView) findViewById(R.id.textViewAmountCartofiPrajiti);
+        cartofiTextView.setText(cartofiAmount + "");
+
+        int pretAmount = SqlConstants.GetValuesCountFromTables(context,dateFrom,dateTo,SqlConstants.PretTables(),SqlConstants.ColoanaPret);
+        TextView pretTextView = (TextView)findViewById(R.id.textViewAmountBani);
+        pretTextView.setText(String.valueOf(pretAmount));
+
+        int paineAmount = SqlConstants.GetValuesCountFromTables(context,dateFrom, dateTo, SqlConstants.ChiflaTables(),SqlConstants.ColoanaPaine);
+        TextView paineTextView = (TextView) findViewById(R.id.textViewAmountChifle);
+        paineTextView.setText(paineAmount + "");
+
+        int carneAmount = SqlConstants.GetValuesCountFromTables(context,dateFrom,dateTo, SqlConstants.CarneTables(),SqlConstants.ColoanaCarne);
+        TextView carneTextView = (TextView) findViewById(R.id.textViewAmountCarne);
+        carneTextView.setText(carneAmount + "");
+
+        int maionezaAmount = SqlConstants.GetValuesCountFromTables(context, dateFrom, dateTo, SqlConstants.MaionezaTables(),SqlConstants.ColoanaMaioneza);
+        TextView maionezaTextView = (TextView) findViewById(R.id.textViewAmountMaioneza);
+        maionezaTextView.setText(maionezaAmount + "");
+
+        int cascavalAmount = SqlConstants.GetValuesCountFromTables(context, dateFrom, dateTo, SqlConstants.CascavalTables(),SqlConstants.ColoanaCascaval);
+        TextView cascavalTextView = (TextView) findViewById(R.id.textViewAmountCascaval);
+        cascavalTextView.setText(cascavalAmount + "");
+
+        int ketchupAmount = SqlConstants.GetValuesCountFromTables(context, dateFrom,dateTo, SqlConstants.KetchupTables(), SqlConstants.ColoanaKetchup);
+        TextView ketchupTextView = (TextView) findViewById(R.id.textViewAmountKetchup);
+        ketchupTextView.setText(ketchupAmount + "");
+
+        int suncaAmount = SqlConstants.GetValuesCountFromTables(context,dateFrom, dateTo, SqlConstants.SuncaTables(),SqlConstants.ColoanaSunca);
+        TextView suncaTextView = (TextView) findViewById(R.id.textViewAmountSunca);
+        suncaTextView.setText(suncaAmount + "");
     }
+
 
     private void updateLabel(EditText editTextToUpdate, Calendar calendar) {
 
@@ -216,7 +288,6 @@ public class Statistics_Activity extends AppCompatActivity {
         pieChart.setPieChartData(data);
         pieChart.startDataAnimation();
     }
-
 
     private void UpdatePieChart(Date dateFrom, Date dateTo){
 

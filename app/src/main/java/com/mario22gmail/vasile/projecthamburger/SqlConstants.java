@@ -41,7 +41,7 @@ public class SqlConstants {
     public static String ColoanaSunca = "Sunca";
     public static String ColoanaSalata = "Salata";
     public static String ColoanaHochland = "Hochland";
-    public static String ColoanaCastravetiMurati ="CastravetiMurati";
+    public static String ColoanaCastravetiMurati = "CastravetiMurati";
     public static String ColoanaId = "Id";
     public static String ColoanaDataVanzare = "DataVanzare";
     public static String ColoanaPret = "Pret";
@@ -128,7 +128,7 @@ public class SqlConstants {
             + Comma_SEP + ColoanaCascaval
             + Comma_SEP + ColoanaPret + ")";
 
-    public static  final String SqlCommandCreateHamburgerCheese = "CREATE TABLE " + HamburgerCheeseTable
+    public static final String SqlCommandCreateHamburgerCheese = "CREATE TABLE " + HamburgerCheeseTable
             + " (" + ColoanaId + " INTEGER PRIMARY KEY"
             + Comma_SEP + ColoanaDataVanzare + AddCurrentTimeToTable
             + Comma_SEP + ColoanaPaine
@@ -171,7 +171,7 @@ public class SqlConstants {
             + Comma_SEP + ColoanaCascaval
             + Comma_SEP + ColoanaPret + ")";
 
-    public static final String SqlCommandCreateSandwitch= "CREATE TABLE " + SandwichTable
+    public static final String SqlCommandCreateSandwitch = "CREATE TABLE " + SandwichTable
             + " (" + ColoanaId + " INTEGER PRIMARY KEY"
             + Comma_SEP + ColoanaDataVanzare + AddCurrentTimeToTable
             + Comma_SEP + ColoanaPaine
@@ -182,7 +182,6 @@ public class SqlConstants {
             + Comma_SEP + ColoanaKetchup
             + Comma_SEP + ColoanaCascaval
             + Comma_SEP + ColoanaPret + ")";
-
 
 
     ///
@@ -198,8 +197,7 @@ public class SqlConstants {
             }
             db.close();
             sqlHelper.close();
-        }catch (Exception ex)
-        {
+        } catch (Exception ex) {
             Toast.makeText(context, "Eroare la adaugare", Toast.LENGTH_SHORT).show();
             Log.i("Hamburger error", ex.getMessage());
         }
@@ -246,8 +244,7 @@ public class SqlConstants {
     }
 
 
-    public static int GetNumberOfHamburgerSold(Context context,String tableName, Date dateFrom, Date dateTo)
-    {
+    public static int GetNumberOfHamburgerSold(Context context, String tableName, Date dateFrom, Date dateTo) {
         FeedHelperSql sqlHelper = FeedHelperSql.getHelper(context);
         SQLiteDatabase db = sqlHelper.getReadableDatabase();
 
@@ -256,8 +253,8 @@ public class SqlConstants {
         String dateToFormated = formatDate.format(dateTo);
 
         String countQuery = "select count(*) from " + tableName +
-                " " + "WHERE " + ColoanaDataVanzare +" >= '" + dateFromFormated + " 00:00:00'" +
-                " and " + ColoanaDataVanzare + " <= '" +dateToFormated +" 23:59:59'";
+                " " + "WHERE " + ColoanaDataVanzare + " >= '" + dateFromFormated + " 00:00:00'" +
+                " and " + ColoanaDataVanzare + " <= '" + dateToFormated + " 23:59:59'";
         Cursor cursorCount = db.rawQuery(countQuery, null);
         cursorCount.moveToFirst();
         int countHamburger = cursorCount.getInt(0);
@@ -271,11 +268,8 @@ public class SqlConstants {
         //return 0;
     }
 
-    private static int GetHamburgerSpecificValue(Context context, String tableName, String propertyName, Date dateFrom, Date dateTo)
-    {
-        FeedHelperSql sqlHelper = FeedHelperSql.getHelper(context);
-        SQLiteDatabase db = sqlHelper.getReadableDatabase();
-        int valueFromDb;
+    private static int GetHamburgerSpecificValue(SQLiteDatabase db, String tableName, String propertyName, Date dateFrom, Date dateTo) {
+        int valueFromDb = 0;
         try {
             SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
             String dateFromFormated = formatDate.format(dateFrom);
@@ -290,21 +284,16 @@ public class SqlConstants {
             valueFromDb = cursorCount.getInt(0);
 
             cursorCount.close();
-        }
-        catch (Exception ex)
-        {
+        } catch (Exception ex) {
             throw ex;
         }
-        db.close();
 
         return valueFromDb;
 
     }
 
 
-
-    private static int GetHamburgerSpecificValue(SQLiteDatabase db, String tableName, String propertyName, Date dateTo)
-    {
+    private static int GetHamburgerSpecificValue(SQLiteDatabase db, String tableName, String propertyName, Date dateTo) {
 
         int valueFromDb = 0;
         try {
@@ -320,9 +309,7 @@ public class SqlConstants {
 
             cursorCount.close();
 
-        }
-        catch (Exception ex)
-        {
+        } catch (Exception ex) {
             throw ex;
         }
 
@@ -331,38 +318,130 @@ public class SqlConstants {
     }
 
 
-
-    public static int GetCartofiPrajiti(Context context, Date dateFrom, Date dateTo)
-    {
-        int cartofiPrajitiSpecial = GetHamburgerSpecificValue(context,SqlConstants.HamburgerSpecialTable,SqlConstants.ColoanaCartofi,dateFrom,dateTo);
-        int cartofiPrajitiDublu = GetHamburgerSpecificValue(context,SqlConstants.HamburgerDubluTable,SqlConstants.ColoanaCartofi,dateFrom,dateTo);
-        int cartofiPrajitiSunca = GetHamburgerSpecificValue(context,SqlConstants.HamburgerSuncaTable,SqlConstants.ColoanaCartofi,dateFrom,dateTo);
-        int cartofiPrajitiMediu = GetHamburgerSpecificValue(context,SqlConstants.HamburgerMediuTable,SqlConstants.ColoanaCartofi,dateFrom,dateTo);
-        int cartofiPrajitiCartofi = GetHamburgerSpecificValue(context,SqlConstants.HamburgerCartofiTable,SqlConstants.ColoanaCartofi,dateFrom,dateTo);
-        int cartofiPrajitiVegetarian = GetHamburgerSpecificValue(context,SqlConstants.HamburgerVegetarianTable,SqlConstants.ColoanaCartofi,dateFrom,dateTo);
-        int cartofiPrajitiSandwich = GetHamburgerSpecificValue(context,SqlConstants.SandwichTable,SqlConstants.ColoanaCartofi,dateFrom,dateTo);
-
-        int totalAmountCartofi = cartofiPrajitiSpecial + cartofiPrajitiDublu + cartofiPrajitiSunca
-                + cartofiPrajitiMediu + cartofiPrajitiCartofi + cartofiPrajitiVegetarian + cartofiPrajitiSandwich;
-        return totalAmountCartofi;
-    }
-
-    public static int GetCartofiPrajiti(Context context, Date dateFrom)
-    {
+    public static int GetValuesCountFromTables(Context context, Date dateFrom, String[] sqlTables, String columnName) {
+        int amount = 0;
         FeedHelperSql sqlHelper = FeedHelperSql.getHelper(context);
         SQLiteDatabase db = sqlHelper.getReadableDatabase();
-        int cartofiPrajitiSpecial = GetHamburgerSpecificValue(db,SqlConstants.HamburgerSpecialTable,SqlConstants.ColoanaCartofi,dateFrom);
-        int cartofiPrajitiDublu = GetHamburgerSpecificValue(db,SqlConstants.HamburgerDubluTable,SqlConstants.ColoanaCartofi,dateFrom);
-        int cartofiPrajitiSunca = GetHamburgerSpecificValue(db,SqlConstants.HamburgerSuncaTable,SqlConstants.ColoanaCartofi,dateFrom);
-        int cartofiPrajitiMediu = GetHamburgerSpecificValue(db,SqlConstants.HamburgerMediuTable,SqlConstants.ColoanaCartofi,dateFrom);
-        int cartofiPrajitiCartofi = GetHamburgerSpecificValue(db,SqlConstants.HamburgerCartofiTable,SqlConstants.ColoanaCartofi,dateFrom);
-        int cartofiPrajitiVegetarian = GetHamburgerSpecificValue(db,SqlConstants.HamburgerVegetarianTable,SqlConstants.ColoanaCartofi,dateFrom);
-        int cartofiPrajitiSandwich = GetHamburgerSpecificValue(db,SqlConstants.SandwichTable,SqlConstants.ColoanaCartofi,dateFrom);
+        for (int i = 0; i < sqlTables.length; i++) {
+            String tableName = sqlTables[i];
+            amount += GetHamburgerSpecificValue(db, tableName, columnName, dateFrom);
+        }
         db.close();
-        int totalAmountCartofi = cartofiPrajitiSpecial + cartofiPrajitiDublu + cartofiPrajitiSunca
-                + cartofiPrajitiMediu + cartofiPrajitiCartofi + cartofiPrajitiVegetarian + cartofiPrajitiSandwich;
-        return totalAmountCartofi;
+
+        return amount;
     }
+
+    public static int GetValuesCountFromTables(Context context, Date dateFrom,Date dateTo, String[] sqlTables, String columnName) {
+        int amount = 0;
+        FeedHelperSql sqlHelper = FeedHelperSql.getHelper(context);
+        SQLiteDatabase db = sqlHelper.getReadableDatabase();
+        for (int i = 0; i < sqlTables.length; i++) {
+            String tableName = sqlTables[i];
+            amount += GetHamburgerSpecificValue(db, tableName, columnName, dateFrom, dateTo);
+        }
+        db.close();
+
+        return amount;
+    }
+
+    public static String[] CartofiPrajitiTables() {
+        String[] tables = { SqlConstants.HamburgerSpecialTable,
+                            SqlConstants.HamburgerDubluTable,
+                            SqlConstants.HamburgerSuncaTable,
+                            SqlConstants.HamburgerMediuTable,
+                            SqlConstants.HamburgerCartofiTable,
+                            SqlConstants.HamburgerVegetarianTable,
+                            SqlConstants.SandwichTable
+        };
+        return tables;
+    }
+
+    public static String[] PretTables() {
+        String[] tables = { SqlConstants.HamburgerSpecialTable,
+                SqlConstants.HamburgerDubluTable,
+                SqlConstants.HamburgerSuncaTable,
+                SqlConstants.HamburgerMediuTable,
+                SqlConstants.HamburgerCheeseTable,
+                SqlConstants.HamburgerCartofiTable,
+                SqlConstants.HamburgerSimpluTable,
+                SqlConstants.HamburgerVegetarianTable,
+                SqlConstants.SandwichTable
+        };
+        return tables;
+    }
+
+    public static String[] ChiflaTables() {
+        String[] tables = { SqlConstants.HamburgerSpecialTable,
+                SqlConstants.HamburgerDubluTable,
+                SqlConstants.HamburgerSuncaTable,
+                SqlConstants.HamburgerMediuTable,
+                SqlConstants.HamburgerCheeseTable,
+                SqlConstants.HamburgerCartofiTable,
+                SqlConstants.HamburgerSimpluTable,
+                SqlConstants.HamburgerVegetarianTable,
+                SqlConstants.SandwichTable
+        };
+        return tables;
+    }
+
+    public static String[] SuncaTables() {
+        String[] tables = { SqlConstants.HamburgerSpecialTable,
+                SqlConstants.HamburgerSuncaTable,
+                SqlConstants.SandwichTable
+        };
+        return tables;
+    }
+
+    public static String[] KetchupTables() {
+        String[] tables = { SqlConstants.HamburgerSpecialTable,
+                SqlConstants.HamburgerDubluTable,
+                SqlConstants.HamburgerSuncaTable,
+                SqlConstants.HamburgerMediuTable,
+                SqlConstants.HamburgerCheeseTable,
+                SqlConstants.HamburgerCartofiTable,
+                SqlConstants.HamburgerSimpluTable,
+                SqlConstants.HamburgerVegetarianTable,
+        };
+        return tables;
+    }
+
+    public static String[] CascavalTables() {
+        String[] tables = { SqlConstants.HamburgerSpecialTable,
+                SqlConstants.HamburgerDubluTable,
+                SqlConstants.HamburgerSuncaTable,
+                SqlConstants.HamburgerMediuTable,
+                SqlConstants.HamburgerVegetarianTable,
+                SqlConstants.SandwichTable
+        };
+        return tables;
+    }
+
+    public static String[] CarneTables() {
+        String[] tables = { SqlConstants.HamburgerSpecialTable,
+                SqlConstants.HamburgerDubluTable,
+                SqlConstants.HamburgerMediuTable,
+                SqlConstants.HamburgerCheeseTable,
+                SqlConstants.HamburgerCartofiTable,
+                SqlConstants.HamburgerSimpluTable,
+        };
+        return tables;
+    }
+
+    public static String[] MaionezaTables() {
+        String[] tables = { SqlConstants.HamburgerSpecialTable,
+                SqlConstants.HamburgerDubluTable,
+                SqlConstants.HamburgerSuncaTable,
+                SqlConstants.HamburgerMediuTable,
+                SqlConstants.HamburgerCheeseTable,
+                SqlConstants.HamburgerCartofiTable,
+                SqlConstants.HamburgerSimpluTable,
+                SqlConstants.HamburgerVegetarianTable,
+                SqlConstants.SandwichTable
+        };
+        return tables;
+    }
+
+
 
     public static ContentValues GetHamburgerValues(String hamburger1TableName) throws Exception {
         switch (hamburger1TableName) {
@@ -475,14 +554,6 @@ public class SqlConstants {
         }
         throw new Exception("Nu am gasit tabela si nu pot returna valori");
     }
-
-
-
-
-
-
-
-
 
 
     ///read hamburgers
@@ -699,10 +770,6 @@ public class SqlConstants {
         db.close();
         return valori;
     }
-
-
-
-
 
 
 }

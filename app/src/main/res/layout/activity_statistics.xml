@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?><!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:tools="http://schemas.android.com/tools"--><!--android:layout_width="fill_parent"--><!--android:layout_height="fill_parent"--><!--tools:context=".Statistics_Activity">-->
 
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".Statistics_Activity">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -34,10 +39,10 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -47,24 +52,31 @@
             <RelativeLayout
                 android:id="@+id/layoutSingleDate"
                 android:layout_width="@dimen/datepicker_statistics_width"
-                android:layout_height="72dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_marginLeft="@dimen/datepicker_statistics_margin"
-                    android:paddingBottom="6dp"
-                    android:text="De la"
-                    android:textSize="18sp" />
+                    android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/datepickerStatisticsSingleDate"
-                    android:layout_width="@dimen/datepicker_statistics_width"
-                    android:layout_height="@dimen/datepicker_statistics_height"
-                    android:layout_marginLeft="@dimen/datepicker_statistics_margin"
-                    android:focusable="false" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginLeft="@dimen/datepicker_statistics_margin"
+                        android:paddingBottom="6dp"
+                        android:text="La"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/datepickerStatisticsSingleDate"
+                        android:layout_width="@dimen/datepicker_statistics_width"
+                        android:layout_height="@dimen/datepicker_statistics_height"
+                        android:layout_marginLeft="@dimen/datepicker_statistics_margin"
+                        android:focusable="false" />
+                </LinearLayout>
+
             </RelativeLayout>
 
             <LinearLayout
@@ -78,21 +90,26 @@
                     android:layout_height="72dp"
                     android:layout_marginTop="16dp">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:layout_marginLeft="@dimen/datepicker_statistics_margin"
-                        android:paddingBottom="6dp"
-                        android:text="De la"
-                        android:textSize="18sp" />
+                        android:layout_height="wrap_content">
 
-                    <EditText
-                        android:id="@+id/datepickerStatisticsFrom"
-                        android:layout_width="@dimen/datepicker_statistics_width"
-                        android:layout_height="@dimen/datepicker_statistics_height"
-                        android:layout_marginLeft="@dimen/datepicker_statistics_margin"
-                        android:focusable="false" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:layout_marginLeft="@dimen/datepicker_statistics_margin"
+                            android:paddingBottom="6dp"
+                            android:text="De la"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/datepickerStatisticsFrom"
+                            android:layout_width="@dimen/datepicker_statistics_width"
+                            android:layout_height="@dimen/datepicker_statistics_height"
+                            android:layout_marginLeft="@dimen/datepicker_statistics_margin"
+                            android:focusable="false" />
+                    </LinearLayout>
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -101,21 +118,26 @@
                     android:layout_height="72dp"
                     android:layout_marginTop="16dp">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:layout_marginLeft="@dimen/datepicker_statistics_margin"
-                        android:paddingBottom="6dp"
-                        android:text="Pana la"
-                        android:textSize="18sp" />
+                        android:layout_height="wrap_content">
 
-                    <EditText
-                        android:id="@+id/datepickerStatisticsTo"
-                        android:layout_width="@dimen/datepicker_statistics_width"
-                        android:layout_height="@dimen/datepicker_statistics_height"
-                        android:layout_marginLeft="@dimen/datepicker_statistics_margin"
-                        android:focusable="false" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:layout_marginLeft="@dimen/datepicker_statistics_margin"
+                            android:paddingBottom="6dp"
+                            android:text="Pana la"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/datepickerStatisticsTo"
+                            android:layout_width="@dimen/datepicker_statistics_width"
+                            android:layout_height="@dimen/datepicker_statistics_height"
+                            android:layout_marginLeft="@dimen/datepicker_statistics_margin"
+                            android:focusable="false" />
+                    </LinearLayout>
                 </RelativeLayout>
 
             </LinearLayout>
@@ -341,12 +363,12 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="26dp"
-                android:orientation="vertical"
-                android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginStart="26dp">
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="26dp"
+                android:layout_marginStart="26dp"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -357,17 +379,33 @@
                     <ImageButton
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/french_fries"
-                        />
+                        android:background="@drawable/banknotes"
+                        android:scaleType="fitCenter" />
 
                     <TextView
-                        android:id="@+id/textViewTotalCartofi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal|center"
                         android:layout_marginLeft="8dp"
-                        android:text="something"
+                        android:text="Profit"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/textViewAmountBani"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center"
+                        android:layout_marginLeft="8dp"
+                        android:text="suma"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center"
+                        android:layout_marginLeft="8dp"
+                        android:text="lei"
                         android:textSize="17sp" />
 
                 </LinearLayout>
@@ -378,16 +416,113 @@
                     android:layout_marginBottom="8dp"
                     android:orientation="horizontal">
 
-                    <Button
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:background="@color/colorTeal" />
+                    <ImageButton
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/french_fries_new"
+                        android:scaleType="fitCenter" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center"
                         android:layout_marginLeft="8dp"
-                        android:text="@string/hamburger_dublu"
+                        android:text="Cantitate cartofi prajiti"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/textViewAmountCartofiPrajiti"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center"
+                        android:layout_marginLeft="8dp"
+                        android:text="cartofi parjiti"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center"
+                        android:layout_marginLeft="8dp"
+                        android:text="kg"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <ImageButton
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bread_50"
+                        android:scaleType="fitCenter"
+                        android:layout_weight="0.04" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center"
+                        android:layout_marginLeft="8dp"
+                        android:text="Cantitate chifle"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/textViewAmountChifle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center"
+                        android:layout_marginLeft="8dp"
+                        android:text="chifle"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center"
+                        android:layout_marginLeft="8dp"
+                        android:text="buc"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/cheese"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center"
+                        android:layout_marginLeft="8dp"
+                        android:text="Cantitate cascaval"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/textViewAmountCascaval"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center"
+                        android:layout_marginLeft="8dp"
+                        android:text="cascaval"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center"
+                        android:layout_marginLeft="8dp"
+                        android:text="buc"
                         android:textSize="17sp" />
 
                 </LinearLayout>
@@ -398,16 +533,36 @@
                     android:layout_marginBottom="8dp"
                     android:orientation="horizontal">
 
-                    <Button
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:background="@color/colorBlueDark" />
+                    <ImageButton
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/maioneza"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center"
+                        android:layout_marginLeft="8dp"
+                        android:text="Cantitate maioneza"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/textViewAmountMaioneza"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center"
+                        android:layout_marginLeft="8dp"
+                        android:text="maioneza"
+                        android:textSize="17sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center"
                         android:layout_marginLeft="8dp"
-                        android:text="@string/hamburger_sunca"
+                        android:text="kg"
                         android:textSize="17sp" />
 
                 </LinearLayout>
@@ -418,16 +573,35 @@
                     android:layout_marginBottom="8dp"
                     android:orientation="horizontal">
 
-                    <Button
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:background="@color/colorBlueGrey" />
+                    <ImageButton
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/ketchup"
+                        android:scaleType="fitCenter" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center"
                         android:layout_marginLeft="8dp"
-                        android:text="@string/hamburger_mediu"
+                        android:text="Cantitate ketchup"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/textViewAmountKetchup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center"
+                        android:layout_marginLeft="8dp"
+                        android:text="ketchup"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center"
+                        android:layout_marginLeft="8dp"
+                        android:text="kg"
                         android:textSize="17sp" />
 
                 </LinearLayout>
@@ -438,16 +612,35 @@
                     android:layout_marginBottom="8dp"
                     android:orientation="horizontal">
 
-                    <Button
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:background="@color/colorOrangeLight" />
+                    <ImageButton
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/sunca"
+                        android:scaleType="fitCenter" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center"
                         android:layout_marginLeft="8dp"
-                        android:text="@string/hamburger_cheeseburger"
+                        android:text="Cantitate carne"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/textViewAmountCarne"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center"
+                        android:layout_marginLeft="8dp"
+                        android:text="carne"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center"
+                        android:layout_marginLeft="8dp"
+                        android:text="buc"
                         android:textSize="17sp" />
 
                 </LinearLayout>
@@ -458,76 +651,35 @@
                     android:layout_marginBottom="8dp"
                     android:orientation="horizontal">
 
-                    <Button
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:background="@color/colorYellow" />
+                    <ImageButton
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/bacon"
+                        android:scaleType="fitCenter" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center"
                         android:layout_marginLeft="8dp"
-                        android:text="@string/hamburger_cartofi"
+                        android:text="Cantitate sunca"
                         android:textSize="17sp" />
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:background="@color/colorViolet" />
-
                     <TextView
+                        android:id="@+id/textViewAmountSunca"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center"
                         android:layout_marginLeft="8dp"
-                        android:text="@string/hamburger_simpu"
+                        android:text="sunca"
                         android:textSize="17sp" />
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:background="@color/colorGreen" />
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center"
                         android:layout_marginLeft="8dp"
-                        android:text="@string/hamburger_Vegetarian"
-                        android:textSize="17sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:background="@color/colorMov" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:text="@string/sandwich"
+                        android:text="buc"
                         android:textSize="17sp" />
 
                 </LinearLayout>
@@ -540,6 +692,7 @@
     </LinearLayout>
 
 
-</RelativeLayout><!--</ScrollView>-->
+</RelativeLayout>
+</ScrollView>
 
 
