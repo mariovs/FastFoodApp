@@ -60,7 +60,7 @@ public class Statistics_Activity extends AppCompatActivity {
             calendarOneDay.set(Calendar.MONTH, monthOfYear);
             calendarOneDay.set(Calendar.DAY_OF_MONTH, dayOfMonth);
             EditText dateFromEditText = (EditText) findViewById(R.id.datepickerStatisticsSingleDate);
-            updateLabel(dateFromEditText, calendarFrom);
+            updateLabel(dateFromEditText, calendarOneDay);
             UpdatePieChart(calendarOneDay.getTime());
             UpdateTotalAmountsLabelFromDb(calendarOneDay.getTime());
 
@@ -165,14 +165,9 @@ public class Statistics_Activity extends AppCompatActivity {
         AppCompatCheckBox checkBox = (AppCompatCheckBox) findViewById(R.id.periodCheckBox);
         if(!checkBox.isChecked())
         {
-            Date dateNow = Calendar.getInstance().getTime();
-            calendarOneDay.setTime(dateNow);
-
-//            calendarOneDay.set(Calendar.YEAR, year);
-//            calendarOneDay.set(Calendar.MONTH, monthOfYear);
-//            calendarOneDay.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            calendarOneDay.setTime(Calendar.getInstance().getTime());
             EditText dateFromEditText = (EditText) findViewById(R.id.datepickerStatisticsSingleDate);
-            updateLabel(dateFromEditText, calendarFrom);
+            updateLabel(dateFromEditText, calendarOneDay);
             UpdatePieChart(calendarOneDay.getTime());
             UpdateTotalAmountsLabelFromDb(calendarOneDay.getTime());
         }
