@@ -125,7 +125,8 @@ public class MainActivity extends AppCompatActivity {
             SqlConstants.DeleteLastHamburger(this.getApplicationContext(), SqlConstants.HamburgerSpecialTable);
             Toast.makeText(this.getApplicationContext(), "Sters cu success", Toast.LENGTH_SHORT).show();
         }
-        ReadDataFromDb();
+        TextView hamburgerSpecialDailyCountTextView = (TextView) findViewById(R.id.hamburgerSpecialDailyCountTextView);
+        UpdateSoldDayHamburger(hamburgerSpecialDailyCountTextView, SqlConstants.HamburgerSpecialTable);
 
     }
 
@@ -141,7 +142,8 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this.getApplicationContext(), "Sters cu success", Toast.LENGTH_SHORT).show();
             SqlConstants.DeleteLastHamburger(this.getApplicationContext(), SqlConstants.HamburgerDubluTable);
         }
-        ReadDataFromDb();
+        TextView hamburgerDublyDailyCountTextView = (TextView) findViewById(R.id.hamburgerDubluDailyCountTextView);
+        UpdateSoldDayHamburger(hamburgerDublyDailyCountTextView, SqlConstants.HamburgerDubluTable);
 
     }
 
@@ -157,7 +159,8 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this.getApplicationContext(), "Sters cu success", Toast.LENGTH_SHORT).show();
             SqlConstants.DeleteLastHamburger(this.getApplicationContext(), SqlConstants.HamburgerSuncaTable);
         }
-        ReadDataFromDb();
+        TextView hamburgerSuncaDailyCountTextView = (TextView) findViewById(R.id.hamburgerSuncaDailyCountTextView);
+        UpdateSoldDayHamburger(hamburgerSuncaDailyCountTextView, SqlConstants.HamburgerSuncaTable);
 
     }
 
@@ -173,7 +176,8 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this.getApplicationContext(), "Sters cu success", Toast.LENGTH_SHORT).show();
             SqlConstants.DeleteLastHamburger(this.getApplicationContext(), SqlConstants.HamburgerMediuTable);
         }
-        ReadDataFromDb();
+        TextView hamburgerMediuDailyCountTextView = (TextView) findViewById(R.id.hamburgerMediuDailyCountTextView);
+        UpdateSoldDayHamburger(hamburgerMediuDailyCountTextView, SqlConstants.HamburgerMediuTable);
 
     }
 
@@ -189,7 +193,8 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this.getApplicationContext(), "Sters cu success", Toast.LENGTH_SHORT).show();
             SqlConstants.DeleteLastHamburger(this.getApplicationContext(), SqlConstants.HamburgerCheeseTable);
         }
-        ReadDataFromDb();
+        TextView hamburgerCheeseDailyCountTextView = (TextView) findViewById(R.id.hamburgerCheeseDailyCountTextView);
+        UpdateSoldDayHamburger(hamburgerCheeseDailyCountTextView, SqlConstants.HamburgerCheeseTable);
 
     }
 
@@ -205,7 +210,8 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this.getApplicationContext(), "Sters cu success", Toast.LENGTH_SHORT).show();
             SqlConstants.DeleteLastHamburger(this.getApplicationContext(), SqlConstants.HamburgerCartofiTable);
         }
-        ReadDataFromDb();
+        TextView hamburgerCartofiDailyCountTextView = (TextView) findViewById(R.id.hamburgerCartofiDailyCountTextView);
+        UpdateSoldDayHamburger(hamburgerCartofiDailyCountTextView, SqlConstants.HamburgerCartofiTable);
 
     }
 
@@ -221,7 +227,8 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this.getApplicationContext(), "Sters cu success", Toast.LENGTH_SHORT).show();
             SqlConstants.DeleteLastHamburger(this.getApplicationContext(), SqlConstants.HamburgerSimpluTable);
         }
-        ReadDataFromDb();
+        TextView hamburgerSimpluDailyCountTextView = (TextView) findViewById(R.id.hamburgerSimpluDailyCountTextView);
+        UpdateSoldDayHamburger(hamburgerSimpluDailyCountTextView, SqlConstants.HamburgerSimpluTable);
 
     }
 
@@ -238,7 +245,8 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this.getApplicationContext(), "Sters cu success", Toast.LENGTH_SHORT).show();
             SqlConstants.DeleteLastHamburger(this.getApplicationContext(), SqlConstants.HamburgerVegetarianTable);
         }
-        ReadDataFromDb();
+        TextView hamburgerVegetarianDailyCountTextView = (TextView) findViewById(R.id.hamburgerVegetarianDailyCountTextView);
+        UpdateSoldDayHamburger(hamburgerVegetarianDailyCountTextView, SqlConstants.HamburgerVegetarianTable);
 
     }
 
@@ -255,7 +263,8 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this.getApplicationContext(), "Sters cu success", Toast.LENGTH_SHORT).show();
             SqlConstants.DeleteLastHamburger(this.getApplicationContext(), SqlConstants.SandwichTable);
         }
-        ReadDataFromDb();
+        TextView sandwitchDailyCountTextView = (TextView) findViewById(R.id.sandwitchDailyCountTextView);
+        UpdateSoldDayHamburger(sandwitchDailyCountTextView, SqlConstants.SandwichTable);
 
     }
 
@@ -263,32 +272,32 @@ public class MainActivity extends AppCompatActivity {
 
     public void ReadDataFromDb() {
         try {
-            TextView textViewSpecial = (TextView) findViewById(R.id.resultHamburgerSpecialTextView);
-            String valuesFromSpecialTable = "Hamburger Special \n" + SqlConstants.ReadHamburgerSpecial(this.getApplicationContext());
-
-            TextView textViewDublu = (TextView) findViewById(R.id.resultHamburgerDubluTextView);
-            String valuesFromDubluTable = "Hamburger Dublu \n" + SqlConstants.ReadHamburgerDublu(this.getApplicationContext());
-
-            TextView textViewSunca = (TextView) findViewById(R.id.resultHamburgerSuncaTextView);
-            String valuesFromSuncaTable = "Hamburger Sunca \n" + SqlConstants.ReadHamburgerSunca(this.getApplicationContext());
-
-            TextView textViewMediu = (TextView) findViewById(R.id.resultHamburgerMediuTextView);
-            String valuesFromMediuTable = "Hamburger Mediu \n" + SqlConstants.ReadHamburgerMediu(this.getApplicationContext());
-
-            TextView textViewCheese = (TextView) findViewById(R.id.resultHamburgerCheeseTextView);
-            String valuesFromCheeseTable = "Cheeseburger \n" + SqlConstants.ReadHamburgerCheese(this.getApplicationContext());
-
-            TextView textViewCartofi = (TextView) findViewById(R.id.resultHamburgerCartofiTextView);
-            String valuesFromCartofiTable = "Cartofi \n" + SqlConstants.ReadHamburgerCartofi(this.getApplicationContext());
-
-            TextView textViewSimplu = (TextView) findViewById(R.id.resultHamburgerSimpluTextView);
-            String valuesFromSimpluTable = "Simplu \n" + SqlConstants.ReadHamburgerSimplu(this.getApplicationContext());
-
-            TextView textViewVegetarian = (TextView) findViewById(R.id.resultHamburgerVegetarianTextView);
-            String valuesFromVegetarianTable = "Vegetarian \n" + SqlConstants.ReadHamburgerVegetarian(this.getApplicationContext());
-
-            TextView textViewSandwitch = (TextView) findViewById(R.id.resultSandwitchTextView);
-            String valuesFromSandwitchTable = "Sandwitch \n" + SqlConstants.ReadSandwitch(this.getApplicationContext());
+//            TextView textViewSpecial = (TextView) findViewById(R.id.resultHamburgerSpecialTextView);
+//            String valuesFromSpecialTable = "Hamburger Special \n" + SqlConstants.ReadHamburgerSpecial(this.getApplicationContext());
+//
+//            TextView textViewDublu = (TextView) findViewById(R.id.resultHamburgerDubluTextView);
+//            String valuesFromDubluTable = "Hamburger Dublu \n" + SqlConstants.ReadHamburgerDublu(this.getApplicationContext());
+//
+//            TextView textViewSunca = (TextView) findViewById(R.id.resultHamburgerSuncaTextView);
+//            String valuesFromSuncaTable = "Hamburger Sunca \n" + SqlConstants.ReadHamburgerSunca(this.getApplicationContext());
+//
+//            TextView textViewMediu = (TextView) findViewById(R.id.resultHamburgerMediuTextView);
+//            String valuesFromMediuTable = "Hamburger Mediu \n" + SqlConstants.ReadHamburgerMediu(this.getApplicationContext());
+//
+//            TextView textViewCheese = (TextView) findViewById(R.id.resultHamburgerCheeseTextView);
+//            String valuesFromCheeseTable = "Cheeseburger \n" + SqlConstants.ReadHamburgerCheese(this.getApplicationContext());
+//
+//            TextView textViewCartofi = (TextView) findViewById(R.id.resultHamburgerCartofiTextView);
+//            String valuesFromCartofiTable = "Cartofi \n" + SqlConstants.ReadHamburgerCartofi(this.getApplicationContext());
+//
+//            TextView textViewSimplu = (TextView) findViewById(R.id.resultHamburgerSimpluTextView);
+//            String valuesFromSimpluTable = "Simplu \n" + SqlConstants.ReadHamburgerSimplu(this.getApplicationContext());
+//
+//            TextView textViewVegetarian = (TextView) findViewById(R.id.resultHamburgerVegetarianTextView);
+//            String valuesFromVegetarianTable = "Vegetarian \n" + SqlConstants.ReadHamburgerVegetarian(this.getApplicationContext());
+//
+//            TextView textViewSandwitch = (TextView) findViewById(R.id.resultSandwitchTextView);
+//            String valuesFromSandwitchTable = "Sandwitch \n" + SqlConstants.ReadSandwitch(this.getApplicationContext());
 
 
 
@@ -320,26 +329,26 @@ public class MainActivity extends AppCompatActivity {
             UpdateSoldDayHamburger(sandwitchDailyCountTextView, SqlConstants.SandwichTable);
 
 
-            textViewDublu.setText(valuesFromDubluTable);
-            textViewSpecial.setText(valuesFromSpecialTable);
-            textViewSunca.setText(valuesFromSuncaTable);
-            textViewCheese.setText(valuesFromCheeseTable);
-            textViewCartofi.setText(valuesFromCartofiTable);
-            textViewMediu.setText(valuesFromMediuTable);
-            textViewSimplu.setText(valuesFromSimpluTable);
-            textViewVegetarian.setText(valuesFromVegetarianTable);
-            textViewSandwitch.setText(valuesFromSandwitchTable);
-
-
-            Log.i("MARIO DB ", valuesFromSpecialTable);
-            Log.i("MARIO DB ", valuesFromDubluTable);
-            Log.i("MARIO DB ", valuesFromSuncaTable);
-            Log.i("MARIO DB ", valuesFromMediuTable);
-            Log.i("MARIO DB ", valuesFromCheeseTable);
-            Log.i("MARIO DB ", valuesFromCartofiTable);
-            Log.i("MARIO DB ", valuesFromSimpluTable);
-            Log.i("MARIO DB ", valuesFromVegetarianTable);
-            Log.i("MARIO DB ", valuesFromSandwitchTable);
+//            textViewDublu.setText(valuesFromDubluTable);
+//            textViewSpecial.setText(valuesFromSpecialTable);
+//            textViewSunca.setText(valuesFromSuncaTable);
+//            textViewCheese.setText(valuesFromCheeseTable);
+//            textViewCartofi.setText(valuesFromCartofiTable);
+//            textViewMediu.setText(valuesFromMediuTable);
+//            textViewSimplu.setText(valuesFromSimpluTable);
+//            textViewVegetarian.setText(valuesFromVegetarianTable);
+//            textViewSandwitch.setText(valuesFromSandwitchTable);
+//
+//
+//            Log.i("MARIO DB ", valuesFromSpecialTable);
+//            Log.i("MARIO DB ", valuesFromDubluTable);
+//            Log.i("MARIO DB ", valuesFromSuncaTable);
+//            Log.i("MARIO DB ", valuesFromMediuTable);
+//            Log.i("MARIO DB ", valuesFromCheeseTable);
+//            Log.i("MARIO DB ", valuesFromCartofiTable);
+//            Log.i("MARIO DB ", valuesFromSimpluTable);
+//            Log.i("MARIO DB ", valuesFromVegetarianTable);
+//            Log.i("MARIO DB ", valuesFromSandwitchTable);
         }
         catch (Exception ex)
         {

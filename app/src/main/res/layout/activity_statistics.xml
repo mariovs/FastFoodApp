@@ -136,7 +136,7 @@
                             android:id="@+id/periodCheckBox"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
+                            android:layout_gravity="bottom"
                             android:layout_marginLeft="@dimen/datepicker_statistics_margin"
                             android:buttonTint="@color/colorAccent"
                             android:text="Perioada" />
@@ -175,7 +175,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal|center"
                                     android:layout_marginLeft="8dp"
-                                    android:text="Profit"
+                                    android:text="Vanzare"
                                     android:textSize="17sp" />
 
                                 <TextView
@@ -243,6 +243,45 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="8dp"
+                                android:orientation="horizontal">
+
+                                <ImageButton
+                                    android:layout_width="@dimen/labels_statistics_image_width"
+                                    android:layout_height="@dimen/labels_statistics_image_height"
+                                    android:background="@drawable/sunca"
+                                    android:scaleType="fitCenter" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal|center"
+                                    android:layout_marginLeft="8dp"
+                                    android:text="Cantitate carne"
+                                    android:textSize="17sp" />
+
+                                <TextView
+                                    android:id="@+id/textViewAmountCarne"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal|center"
+                                    android:layout_marginLeft="8dp"
+                                    android:text="carne"
+                                    android:textSize="17sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal|center"
+                                    android:layout_marginLeft="8dp"
+                                    android:text="buc"
+                                    android:textSize="17sp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
                                 android:orientation="horizontal"
                                 android:weightSum="1">
 
@@ -269,6 +308,45 @@
                                     android:layout_gravity="center_horizontal|center"
                                     android:layout_marginLeft="8dp"
                                     android:text="chifle"
+                                    android:textSize="17sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal|center"
+                                    android:layout_marginLeft="8dp"
+                                    android:text="buc"
+                                    android:textSize="17sp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:orientation="horizontal">
+
+                                <ImageButton
+                                    android:layout_width="@dimen/labels_statistics_image_width"
+                                    android:layout_height="@dimen/labels_statistics_image_height"
+                                    android:background="@drawable/bacon"
+                                    android:scaleType="fitCenter" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal|center"
+                                    android:layout_marginLeft="8dp"
+                                    android:text="Cantitate sunca"
+                                    android:textSize="17sp" />
+
+                                <TextView
+                                    android:id="@+id/textViewAmountSunca"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal|center"
+                                    android:layout_marginLeft="8dp"
+                                    android:text="sunca"
                                     android:textSize="17sp" />
 
                                 <TextView
@@ -400,83 +478,7 @@
 
                             </LinearLayout>
 
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="8dp"
-                                android:orientation="horizontal">
 
-                                <ImageButton
-                                    android:layout_width="@dimen/labels_statistics_image_width"
-                                    android:layout_height="@dimen/labels_statistics_image_height"
-                                    android:background="@drawable/sunca"
-                                    android:scaleType="fitCenter" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_horizontal|center"
-                                    android:layout_marginLeft="8dp"
-                                    android:text="Cantitate carne"
-                                    android:textSize="17sp" />
-
-                                <TextView
-                                    android:id="@+id/textViewAmountCarne"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_horizontal|center"
-                                    android:layout_marginLeft="8dp"
-                                    android:text="carne"
-                                    android:textSize="17sp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_horizontal|center"
-                                    android:layout_marginLeft="8dp"
-                                    android:text="buc"
-                                    android:textSize="17sp" />
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="8dp"
-                                android:orientation="horizontal">
-
-                                <ImageButton
-                                    android:layout_width="@dimen/labels_statistics_image_width"
-                                    android:layout_height="@dimen/labels_statistics_image_height"
-                                    android:background="@drawable/bacon"
-                                    android:scaleType="fitCenter" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_horizontal|center"
-                                    android:layout_marginLeft="8dp"
-                                    android:text="Cantitate sunca"
-                                    android:textSize="17sp" />
-
-                                <TextView
-                                    android:id="@+id/textViewAmountSunca"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_horizontal|center"
-                                    android:layout_marginLeft="8dp"
-                                    android:text="sunca"
-                                    android:textSize="17sp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_horizontal|center"
-                                    android:layout_marginLeft="8dp"
-                                    android:text="buc"
-                                    android:textSize="17sp" />
-
-                            </LinearLayout>
 
 
                         </LinearLayout>
