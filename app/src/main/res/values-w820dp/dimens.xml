@@ -10,6 +10,11 @@
     <dimen name="switch_description_dimension">24sp</dimen>
     <dimen name="fab_width">86dp</dimen>
     <dimen name="fab_height">86dp</dimen>
+    <dimen name="labels_statistics_image_width">50dp</dimen>
+    <dimen name="labels_statistics_image_height">50dp</dimen>
+    <dimen name="datepicker_statistics_width">140dp</dimen>
+    <dimen name="datepicker_statistics_height">60dp</dimen>
+    <dimen name="datepicker_statistics_margin">30dp</dimen>
     <dimen name="fab_statistic_margin_left">30dp</dimen>
     <dimen name="fab_statistic_margin_bottom">15dp</dimen>
     <dimen name="hamburger_mainlayout_width">170dp</dimen>

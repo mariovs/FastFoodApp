@@ -11,9 +11,9 @@
     <dimen name="fab_statistic_margin_left">30dp</dimen>
     <dimen name="fab_statistic_margin_bottom">15dp</dimen>
     <dimen name="fab_statistic_margin_end">15dp</dimen>
-    <dimen name="datepicker_statistics_width">140dp</dimen>
-    <dimen name="datepicker_statistics_height">60dp</dimen>
-    <dimen name="datepicker_statistics_margin">30dp</dimen>
+    <dimen name="datepicker_statistics_width">100dp</dimen>
+    <dimen name="datepicker_statistics_height">40dp</dimen>
+    <dimen name="datepicker_statistics_margin">15dp</dimen>
     <dimen name="hamburger_mainlayout_width">100dp</dimen>
     <dimen name="hamburger_mainlayout_height">100dp</dimen>
     <dimen name="hamburger_mainlayout_margin_right">15dp</dimen>
@@ -26,5 +26,7 @@
     <dimen name="hamburger_daily_description_padding_bottom">4dp</dimen>
     <dimen name="hamburger_action_icon_size_height">40dp</dimen>
     <dimen name="hamburger_action_icon_size_width">40dp</dimen>
+    <dimen name="labels_statistics_image_width">20dp</dimen>
+    <dimen name="labels_statistics_image_height">20dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 </resources>
